@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  yt-reddit-uploader:
+    build:
+      context: .
+      args:
+        TIME_ZONE: ${TIME_ZONE}
+    container_name: ${CONTAINER_NAME}
+    volumes:
+      - .shared:/opt/shared
+    command:
+      - ${SUBREDDIT}
+      - ${CLIENT_ID}
+      - ${CLIENT_SECRET}
+      - ${FREQUENCY}
+      - ${COUNT}
+      - ${TITLE}
+      - ${DESCRIPTION}
+      - ${KEYWORDS}
+      - ${CATEGORY}
+      - ${PRIVACY_STATUS}
+      - ${BLUR_BACKGROUND}
+      - ${TIME_OF_DAY}
+      - ${DAY_OF_WEEK}
+      - ${DAY_OF_MONTH}
+      - ${IFTTT_KEY}
+      - ${IFTTT_EVENT}
+    environment:
+      - TZ=${TIME_ZONE}
